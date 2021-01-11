@@ -10,7 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ConvertManager : MonoBehaviour, IConverter
+public class ConvertManager: IConverter
 {
     private readonly List<IConverter> converters = new List<IConverter>()
     {

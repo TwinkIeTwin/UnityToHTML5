@@ -37,7 +37,8 @@ namespace Assets.Scripts.Models
 
         public List<IGameObject> Children { get; set; }
         public Vector3 Position { get; set; }
-        public Vector3 Rotation { get; set; }
+        public Vector3 RotationAxis { get; set; }
         public Vector3 Scale { get; set; }
+        public float RotationAngle { get; set; }
     }
 }

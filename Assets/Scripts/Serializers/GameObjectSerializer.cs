@@ -54,8 +54,11 @@ namespace Assets.Scripts.Serializers
                 
                 gameObjectData.Name = name;
                 gameObjectData.ParentName = gameObject.transform.parent != null ? gameObject.transform.parent.gameObject.GetVariableName() : null;
-                
-                gameObjectData.Rotation = gameObject.transform.localRotation.eulerAngles;
+
+                gameObject.transform.rotation.ToAngleAxis(out float rotationAngle, out Vector3 rotationAxis);
+                gameObjectData.RotationAxis = rotationAxis;
+                gameObjectData.RotationAngle = rotationAngle;
+
                 gameObjectData.Position = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
                 gameObjectData.Scale = gameObject.transform.localScale;
             }

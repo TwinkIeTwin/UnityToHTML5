@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using ValueToStringExtension;
 
 namespace Assets.Scripts.Converters
 {
     class GameObjectConverter : IConverter
     {
-
         public string Convert(ISerializedData data)
         {
             if (data is null)
@@ -47,16 +47,13 @@ namespace Assets.Scripts.Converters
                 throw new ArgumentNullException(nameof(agregator), "can not be null");
             }
 
-            string unityRotationName = $"{gameObject.Name}UnityRotation";
-            string convertedRotationName = $"{gameObject.Name}ConvertedRotation";
+            string axisRotationName = $"{gameObject.Name}RotationAxis";
+            string convertedAxisRotationName = $"{gameObject.Name}ConvertedRotationAxis";
 
-            agregator.Append($"\nvar {unityRotationName} = new THREE.Vector3({gameObject.Rotation.x.ToInvariantString()}, {gameObject.Rotation.y.ToInvariantString()}, {gameObject.Rotation.z.ToInvariantString()});\n");
-            agregator.Append($"var {convertedRotationName} = convertUnityRotation({unityRotationName});\n");
-            // rotation in threeJS is not around global axis as in unity, but around local, so we need to rotate them with out special method
-            // to get result as in unity.
-            agregator.Append($"rotateAroundWorldAxis({ gameObject.Name}, xAxis, {convertedRotationName}.x);\n");
-            agregator.Append($"rotateAroundWorldAxis({ gameObject.Name}, yAxis, {convertedRotationName}.y);\n");
-            agregator.Append($"rotateAroundWorldAxis({ gameObject.Name}, zAxis, {convertedRotationName}.z);\n");
+            agregator.Append($"\nvar {axisRotationName} = new THREE.Vector3({gameObject.RotationAxis.x.ToInvariantString()}, {gameObject.RotationAxis.y.ToInvariantString()}, {gameObject.RotationAxis.z.ToInvariantString()});\n");
+            agregator.Append($"var {convertedAxisRotationName} = convertUnityRotationAxis({axisRotationName});\n");
+
+            agregator.Append($"{gameObject.Name}.rotateOnWorldAxis({convertedAxisRotationName}, convertUnityAngle({gameObject.RotationAngle.ToInvariantString()}));\n");
         }
 
         private void AddPositionCode(IGameObject gameObject, StringBuilder agregator)
