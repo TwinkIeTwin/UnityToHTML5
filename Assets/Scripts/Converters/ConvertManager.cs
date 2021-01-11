@@ -69,6 +69,7 @@ public class ConvertManager : MonoBehaviour, IConverter
             "</head>\n" +
             "<body>\n" +
             "<script src = \"https://threejs.org/build/three.min.js\" ></script>\n" +
+            "<script src = \"https://raw.githack.com/TwinkIeTwin/UnityDataToThreeJS/main/unityDataToThreeJSConverter.js\" ></script>\n" +
             "<script>\n" +
             "var WIDTH = window.innerWidth;\n" +
             "var HEIGHT = window.innerHeight;\n" +

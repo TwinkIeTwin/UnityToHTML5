@@ -45,7 +45,6 @@ namespace Assets
                 {
                     AddAllChildrenGameObjects(child.gameObject);
                 }
-
             }
         }
 

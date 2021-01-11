@@ -25,6 +25,7 @@ namespace Assets
                 {
                     case LightType.Directional:
                         agregator.Append($"var {light.Name} = new THREE.DirectionalLight( 0x{ColorUtility.ToHtmlStringRGB(light.Color)}, {light.Intensity.ToInvariantString()} );\n\n");
+                        agregator.Append($"setLightDirection({light.Name}, new THREE.Vector3({light.Rotation.x}, {light.Rotation.y}, {light.Rotation.z}))");
                         break;
                     case LightType.Point:
                         agregator.Append($"var {light.Name} = new THREE.PointLight( 0x{ColorUtility.ToHtmlStringRGB(light.Color)}, {light.Intensity.ToInvariantString()}, {light.Distance.ToInvariantString()}, 3);\n\n");

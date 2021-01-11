@@ -55,22 +55,8 @@ namespace Assets.Scripts.Serializers
                 gameObjectData.Name = name;
                 gameObjectData.ParentName = gameObject.transform.parent != null ? gameObject.transform.parent.gameObject.GetVariableName() : null;
                 
-                gameObjectData.Rotation = new Vector3(-gameObject.transform.localRotation.eulerAngles.x * Mathf.Deg2Rad,
-                    -gameObject.transform.localRotation.eulerAngles.y * Mathf.Deg2Rad,
-                    gameObject.transform.localRotation.eulerAngles.z * Mathf.Deg2Rad);
-                
-                if ((gameObjectData as LightModel)?.LightType == LightType.Directional)
-                {
-                    // threeJS directional light shines from its direction towards (0,0,0), but in unity we have just euler degrees as direction
-                    // so to get right direction vector, we calculate point of light by its direction cosines.
-                    gameObjectData.Position = new Vector3(Mathf.Cos(gameObject.transform.rotation.x), Mathf.Cos(gameObject.transform.rotation.y), Mathf.Cos(gameObject.transform.rotation.z));
-                }
-                else
-                {
-                    // Z-axis is reverted in threeJS relatively unity Z-axis, so we invert z position
-                    gameObjectData.Position = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, -gameObject.transform.localPosition.z);
-                }
-
+                gameObjectData.Rotation = gameObject.transform.localRotation.eulerAngles;
+                gameObjectData.Position = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
                 gameObjectData.Scale = gameObject.transform.localScale;
             }
         }
