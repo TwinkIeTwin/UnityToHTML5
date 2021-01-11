@@ -9,7 +9,7 @@ using ValueToStringExtension;
 
 namespace Assets.Scripts.Models
 {
-    class GameObjectModel : IGameObject
+    public class GameObjectModel : IGameObject
     {
         private string name;
 

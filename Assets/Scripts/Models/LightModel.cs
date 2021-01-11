@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Models
 {
-    class LightModel : GameObjectModel, ILight
+    public class LightModel : GameObjectModel, IGameObject
     {
         public Color Color { get; set; }
         public LightType LightType { get; set; }

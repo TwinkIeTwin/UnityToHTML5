@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 using ValueToStringExtension;
 
 namespace Assets
 {
-    class MainCameraConverter : IConverter
+    class MainCameraConverter : IHtml5Converter
     {
         public string Convert(ISerializedData data)
         {

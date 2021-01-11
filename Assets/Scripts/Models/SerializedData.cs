@@ -12,18 +12,18 @@ namespace Assets.Scripts.Serializers
     {
         public SerializedData()
         {
-            MeshObjects = new Dictionary<string, IMeshObject>();
+            MeshObjects = new Dictionary<string, MeshObjectModel>();
 
-            Lights = new Dictionary<string, ILight>();
+            Lights = new Dictionary<string, LightModel>();
 
             GameObjects = new Dictionary<string, IGameObject>();
 
             MainCamera = new MainCameraModel();
         }
 
-        public IMainCamera MainCamera { get; set; }
-        public Dictionary<string, IMeshObject> MeshObjects { get; set; }
-        public Dictionary<string, ILight> Lights { get; set; }
+        public MainCameraModel MainCamera { get; set; }
+        public Dictionary<string, MeshObjectModel> MeshObjects { get; set; }
+        public Dictionary<string, LightModel> Lights { get; set; }
         public Dictionary<string, IGameObject> GameObjects {get; set;}
     }
 }

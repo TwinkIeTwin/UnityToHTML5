@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -95,7 +91,7 @@ namespace Assets.Scripts.Helpers
         }
 
         private static string GetOutputPath()
-            => new System.IO.DirectoryInfo(Application.dataPath).CreateSubdirectory($"{SceneManager.GetActiveScene().name} - HTML5").FullName;
+            => new DirectoryInfo(Application.dataPath).Parent.CreateSubdirectory($"{SceneManager.GetActiveScene().name}-HTML5").FullName;
 
     }
 }

@@ -48,7 +48,7 @@ namespace Assets
             }
         }
 
-        private IMeshObject GetMeshObjectData(GameObject gameObject)
+        private MeshObjectModel GetMeshObjectData(GameObject gameObject)
             => new MeshObjectModel
             {
                 Color = gameObject.GetComponent<MeshRenderer>().sharedMaterial.color,
