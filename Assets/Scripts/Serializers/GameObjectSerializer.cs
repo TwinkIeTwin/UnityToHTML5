@@ -55,7 +55,7 @@ namespace Assets.Scripts.Serializers
                 gameObjectData.Name = name;
                 gameObjectData.ParentName = gameObject.transform.parent != null ? gameObject.transform.parent.gameObject.GetVariableName() : null;
 
-                gameObject.transform.rotation.ToAngleAxis(out float rotationAngle, out Vector3 rotationAxis);
+                gameObject.transform.localRotation.ToAngleAxis(out float rotationAngle, out Vector3 rotationAxis);
                 gameObjectData.RotationAxis = rotationAxis;
                 gameObjectData.RotationAngle = rotationAngle;
 
