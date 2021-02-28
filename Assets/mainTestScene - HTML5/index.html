@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Luna playable v 0.00001</title>
+<style>
+body { margin: 0; padding: 0; }
+canvas { width: 100 %; height: 100 %; }
+</style>
+</head>
+<body>
+<script src = "https://threejs.org/build/three.min.js" ></script>
+<script>
+var WIDTH = window.innerWidth;
+var HEIGHT = window.innerHeight;
+var renderer = new THREE.WebGLRenderer({ antialias:true });
+renderer.setSize(WIDTH, HEIGHT);
+renderer.setClearColor(0x000000, 1);
+document.body.appendChild(renderer.domElement);
+var scene = new THREE.Scene();
+
+var L_Parent_$13312Geometry = new THREE.BoxGeometry(1, 1, 1);
+var L_Parent_$13312Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var L_Parent_$13312 = new THREE.Mesh(L_Parent_$13312Geometry, L_Parent_$13312Material);
+
+var L_Parent_up_line_$13194Geometry = new THREE.BoxGeometry(1, 1, 1);
+var L_Parent_up_line_$13194Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var L_Parent_up_line_$13194 = new THREE.Mesh(L_Parent_up_line_$13194Geometry, L_Parent_up_line_$13194Material);
+
+var U_parent_$13250Geometry = new THREE.BoxGeometry(1, 1, 1);
+var U_parent_$13250Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var U_parent_$13250 = new THREE.Mesh(U_parent_$13250Geometry, U_parent_$13250Material);
+
+var U_parent_up_line_1_$13296Geometry = new THREE.BoxGeometry(1, 1, 1);
+var U_parent_up_line_1_$13296Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var U_parent_up_line_1_$13296 = new THREE.Mesh(U_parent_up_line_1_$13296Geometry, U_parent_up_line_1_$13296Material);
+
+var U_parent_up_line_2_$13286Geometry = new THREE.BoxGeometry(1, 1, 1);
+var U_parent_up_line_2_$13286Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var U_parent_up_line_2_$13286 = new THREE.Mesh(U_parent_up_line_2_$13286Geometry, U_parent_up_line_2_$13286Material);
+
+var N_Diagonal_$13266Geometry = new THREE.BoxGeometry(1, 1, 1);
+var N_Diagonal_$13266Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var N_Diagonal_$13266 = new THREE.Mesh(N_Diagonal_$13266Geometry, N_Diagonal_$13266Material);
+
+var up_line_N1_$13276Geometry = new THREE.BoxGeometry(1, 1, 1);
+var up_line_N1_$13276Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var up_line_N1_$13276 = new THREE.Mesh(up_line_N1_$13276Geometry, up_line_N1_$13276Material);
+
+var up_line_N2_$13172Geometry = new THREE.BoxGeometry(1, 1, 1);
+var up_line_N2_$13172Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var up_line_N2_$13172 = new THREE.Mesh(up_line_N2_$13172Geometry, up_line_N2_$13172Material);
+
+var A_parent_$13212Geometry = new THREE.BoxGeometry(1, 1, 1);
+var A_parent_$13212Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var A_parent_$13212 = new THREE.Mesh(A_parent_$13212Geometry, A_parent_$13212Material);
+
+var A_parent_up_line_2_$13234Geometry = new THREE.BoxGeometry(1, 1, 1);
+var A_parent_up_line_2_$13234Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var A_parent_up_line_2_$13234 = new THREE.Mesh(A_parent_up_line_2_$13234Geometry, A_parent_up_line_2_$13234Material);
+
+var A_parent_up_line_1_$13162Geometry = new THREE.BoxGeometry(1, 1, 1);
+var A_parent_up_line_1_$13162Material = new THREE.MeshPhongMaterial({color: 0xFFFFFF});
+var A_parent_up_line_1_$13162 = new THREE.Mesh(A_parent_up_line_1_$13162Geometry, A_parent_up_line_1_$13162Material);
+
+var Point_Light_$13306 = new THREE.PointLight( 0x0016FF, 1, 44.269, 3);
+
+var Point_Light__1__$13260 = new THREE.PointLight( 0x2F53FF, 1, 44.269, 3);
+
+var Point_Light__2__$13244 = new THREE.PointLight( 0x4C64FF, 1, 44.269, 3);
+
+var Point_Light__3__$13222 = new THREE.PointLight( 0x5AA0FF, 1, 44.269, 3);
+
+var Point_Light__4__$13182 = new THREE.PointLight( 0xFF0200, 1, 44.269, 3);
+
+var Point_Light__5__$13228 = new THREE.PointLight( 0x06FF00, 1, 44.269, 3);
+
+var Point_Light__6__$13188 = new THREE.PointLight( 0xFF0095, 1, 44.269, 3);
+
+var Main_Camera_$13204 = new THREE.PerspectiveCamera(60, WIDTH/HEIGHT);
+
+
+function rotateAroundWorldAxis(object, axis, radians) {
+	rotWorldMatrix = new THREE.Matrix4();
+	rotWorldMatrix.makeRotationAxis(axis.normalize(), radians);
+	rotWorldMatrix.multiply(object.matrix);
+	object.matrix = rotWorldMatrix;
+	object.rotation.setFromRotationMatrix(object.matrix);
+}
+var xAxis = new THREE.Vector3(1, 0, 0);
+var yAxis = new THREE.Vector3(0, 1, 0);
+var zAxis = new THREE.Vector3(0, 0, 1);
+
+L_Parent_$13312.position.set(-7, 0, 0);
+rotateAroundWorldAxis(L_Parent_$13312, xAxis, 0);
+rotateAroundWorldAxis(L_Parent_$13312, yAxis, 0);
+rotateAroundWorldAxis(L_Parent_$13312, zAxis, 0);
+L_Parent_$13312.scale.set(4, 1, 1);
+scene.add(L_Parent_$13312);
+
+L_Parent_up_line_$13194.position.set(-0.375, 3, 0);
+rotateAroundWorldAxis(L_Parent_up_line_$13194, xAxis, 0);
+rotateAroundWorldAxis(L_Parent_up_line_$13194, yAxis, 0);
+rotateAroundWorldAxis(L_Parent_up_line_$13194, zAxis, 0);
+L_Parent_up_line_$13194.scale.set(0.25, 5, 1);
+L_Parent_$13312.add(L_Parent_up_line_$13194);
+
+U_parent_$13250.position.set(-3.16, 0, -5);
+rotateAroundWorldAxis(U_parent_$13250, xAxis, 0);
+rotateAroundWorldAxis(U_parent_$13250, yAxis, 0);
+rotateAroundWorldAxis(U_parent_$13250, zAxis, 0);
+U_parent_$13250.scale.set(4, 1, 1);
+scene.add(U_parent_$13250);
+
+U_parent_up_line_1_$13296.position.set(-0.375, 3, 0);
+rotateAroundWorldAxis(U_parent_up_line_1_$13296, xAxis, 0);
+rotateAroundWorldAxis(U_parent_up_line_1_$13296, yAxis, 0);
+rotateAroundWorldAxis(U_parent_up_line_1_$13296, zAxis, 0);
+U_parent_up_line_1_$13296.scale.set(0.25, 5, 1);
+U_parent_$13250.add(U_parent_up_line_1_$13296);
+
+U_parent_up_line_2_$13286.position.set(0.375, 3, 0);
+rotateAroundWorldAxis(U_parent_up_line_2_$13286, xAxis, 0);
+rotateAroundWorldAxis(U_parent_up_line_2_$13286, yAxis, 0);
+rotateAroundWorldAxis(U_parent_up_line_2_$13286, zAxis, 0);
+U_parent_up_line_2_$13286.scale.set(0.25, 5, 1);
+U_parent_$13250.add(U_parent_up_line_2_$13286);
+
+N_Diagonal_$13266.position.set(2.38, 2.23, -10.04);
+rotateAroundWorldAxis(N_Diagonal_$13266, xAxis, 0);
+rotateAroundWorldAxis(N_Diagonal_$13266, yAxis, 0);
+rotateAroundWorldAxis(N_Diagonal_$13266, zAxis, 5.235988);
+N_Diagonal_$13266.scale.set(6.3, 1, 1);
+scene.add(N_Diagonal_$13266);
+
+up_line_N1_$13276.position.set(0.73, 2.26, -10);
+rotateAroundWorldAxis(up_line_N1_$13276, xAxis, 0);
+rotateAroundWorldAxis(up_line_N1_$13276, yAxis, 0);
+rotateAroundWorldAxis(up_line_N1_$13276, zAxis, 0);
+up_line_N1_$13276.scale.set(1, 6, 1);
+scene.add(up_line_N1_$13276);
+
+up_line_N2_$13172.position.set(4.01, 2.26, -10);
+rotateAroundWorldAxis(up_line_N2_$13172, xAxis, 0);
+rotateAroundWorldAxis(up_line_N2_$13172, yAxis, 0);
+rotateAroundWorldAxis(up_line_N2_$13172, zAxis, 0);
+up_line_N2_$13172.scale.set(1, 6, 1);
+scene.add(up_line_N2_$13172);
+
+A_parent_$13212.position.set(10.78, 0.85, -15.05);
+rotateAroundWorldAxis(A_parent_$13212, xAxis, 0);
+rotateAroundWorldAxis(A_parent_$13212, yAxis, 0);
+rotateAroundWorldAxis(A_parent_$13212, zAxis, 0);
+A_parent_$13212.scale.set(4, 1, 1);
+scene.add(A_parent_$13212);
+
+A_parent_up_line_2_$13234.position.set(0.375, 0.6700001, 0.05000019);
+rotateAroundWorldAxis(A_parent_up_line_2_$13234, xAxis, 0);
+rotateAroundWorldAxis(A_parent_up_line_2_$13234, yAxis, 0);
+rotateAroundWorldAxis(A_parent_up_line_2_$13234, zAxis, 0.122173);
+A_parent_up_line_2_$13234.scale.set(0.25, 5, 1);
+A_parent_$13212.add(A_parent_up_line_2_$13234);
+
+A_parent_up_line_1_$13162.position.set(-0.375, 0.6700001, 0.05000019);
+rotateAroundWorldAxis(A_parent_up_line_1_$13162, xAxis, 0);
+rotateAroundWorldAxis(A_parent_up_line_1_$13162, yAxis, 0);
+rotateAroundWorldAxis(A_parent_up_line_1_$13162, zAxis, 6.161012);
+A_parent_up_line_1_$13162.scale.set(0.25, 5, 1);
+A_parent_$13212.add(A_parent_up_line_1_$13162);
+
+Point_Light_$13306.position.set(-8.48, 0.88, 1.45);
+rotateAroundWorldAxis(Point_Light_$13306, xAxis, 0);
+rotateAroundWorldAxis(Point_Light_$13306, yAxis, 0);
+rotateAroundWorldAxis(Point_Light_$13306, zAxis, 0);
+Point_Light_$13306.scale.set(1, 1, 1);
+scene.add(Point_Light_$13306);
+
+Point_Light__1__$13260.position.set(-2.6, 0.88, -3.24);
+rotateAroundWorldAxis(Point_Light__1__$13260, xAxis, 0);
+rotateAroundWorldAxis(Point_Light__1__$13260, yAxis, 0);
+rotateAroundWorldAxis(Point_Light__1__$13260, zAxis, 0);
+Point_Light__1__$13260.scale.set(1, 1, 1);
+scene.add(Point_Light__1__$13260);
+
+Point_Light__2__$13244.position.set(3.13, 0.88, -6.7);
+rotateAroundWorldAxis(Point_Light__2__$13244, xAxis, 0);
+rotateAroundWorldAxis(Point_Light__2__$13244, yAxis, 0);
+rotateAroundWorldAxis(Point_Light__2__$13244, zAxis, 0);
+Point_Light__2__$13244.scale.set(1, 1, 1);
+scene.add(Point_Light__2__$13244);
+
+Point_Light__3__$13222.position.set(11.76, 0.88, -11.54);
+rotateAroundWorldAxis(Point_Light__3__$13222, xAxis, 0);
+rotateAroundWorldAxis(Point_Light__3__$13222, yAxis, 0);
+rotateAroundWorldAxis(Point_Light__3__$13222, zAxis, 0);
+Point_Light__3__$13222.scale.set(1, 1, 1);
+scene.add(Point_Light__3__$13222);
+
+Point_Light__4__$13182.position.set(-4.98, 6.22, 2.34);
+rotateAroundWorldAxis(Point_Light__4__$13182, xAxis, 0);
+rotateAroundWorldAxis(Point_Light__4__$13182, yAxis, 0);
+rotateAroundWorldAxis(Point_Light__4__$13182, zAxis, 0);
+Point_Light__4__$13182.scale.set(1, 1, 1);
+scene.add(Point_Light__4__$13182);
+
+Point_Light__5__$13228.position.set(-2.61, 3.42, -0.85);
+rotateAroundWorldAxis(Point_Light__5__$13228, xAxis, 0);
+rotateAroundWorldAxis(Point_Light__5__$13228, yAxis, 0);
+rotateAroundWorldAxis(Point_Light__5__$13228, zAxis, 0);
+Point_Light__5__$13228.scale.set(1, 1, 1);
+scene.add(Point_Light__5__$13228);
+
+Point_Light__6__$13188.position.set(9.18, 4.39, -5.69);
+rotateAroundWorldAxis(Point_Light__6__$13188, xAxis, 0);
+rotateAroundWorldAxis(Point_Light__6__$13188, yAxis, 0);
+rotateAroundWorldAxis(Point_Light__6__$13188, zAxis, 0);
+Point_Light__6__$13188.scale.set(1, 1, 1);
+scene.add(Point_Light__6__$13188);
+
+Main_Camera_$13204.position.set(0, 1, 10);
+rotateAroundWorldAxis(Main_Camera_$13204, xAxis, 0);
+rotateAroundWorldAxis(Main_Camera_$13204, yAxis, 0);
+rotateAroundWorldAxis(Main_Camera_$13204, zAxis, 0);
+Main_Camera_$13204.scale.set(1, 1, 1);
+scene.add(Main_Camera_$13204);
+
+function render() {
+	requestAnimationFrame(render);
+	renderer.render(scene, Main_Camera_$13204);
+}
+render();
+</script>
+</body>
+</html>
+
